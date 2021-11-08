@@ -15,7 +15,7 @@ export default function Home({books}) {
         <meta property="og:title" content="Book Shop" />
         <meta property="og:url" content="http://localhost:3000/" />
         <meta property="og:description" content="This is a book shop website, where user can find many books related to programming. User can buy books from this website. User can only select one quantity from one item. User can buy multiple books at a time."/>
-        <meta property="og:image" content={siteImage} />
+        <meta property="og:image" content="https://i.postimg.cc/SRWSN5H0/Logo.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
