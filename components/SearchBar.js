@@ -18,7 +18,8 @@ export default SearchBar;
 
 const SearchInput = styled.div`
   background: #f1f1f1;
-  width: 500px;
+  /* width: 500px; */
+  width:50%;
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
@@ -45,11 +46,12 @@ const SearchInput = styled.div`
     background: #6946f4;
     color: white;
     border-radius: 5px;
+    float: right;
     @media (max-width: 1000px) {
       padding: 10px;
       padding-right: 20px;
       padding-left: 20px;
-      margin-left: 30px;
+      /* margin-left: 30px; */
     }
   }
 `;

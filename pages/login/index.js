@@ -11,6 +11,7 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import { useRouter } from "next/dist/client/router";
 
+
 const app = initializeApp(firebaseConfig);
 
 const loginPage = () => {
@@ -22,6 +23,8 @@ const loginPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [passError, setPasserror] = useState("");
+
+
   const signUp = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
@@ -52,14 +55,14 @@ const loginPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         sessionStorage.setItem("email", user.email);
-        // fetch("https://aeolian-bottlenose-earthquake.glitch.me/admin")
-        // .then(res => res.json())
-        // .then(data => {
-        //   const isAdmin = data.find(
-        //     (admin) => admin.email === sessionStorage.getItem("email")
-        //   );
-        //   setAdmin(isAdmin);
-        // })
+        fetch("https://aeolian-bottlenose-earthquake.glitch.me/admin")
+        .then(res => res.json())
+        .then(data => {
+          const isAdmin = data.find(
+            (admin) => admin.email === sessionStorage.getItem("email")
+          );
+          // setAdmin(isAdmin);
+        })
         // console.log(res);
 
         router.replace(from);

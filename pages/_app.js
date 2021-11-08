@@ -1,11 +1,15 @@
 import Head from "next/head";
 import { createContext, useState } from "react";
+// import { Provider } from "react-redux";
+// import { store } from "../components/Redux/store";
 import "../styles/globals.css";
 
 export const cartContext = createContext();
+export const adminContext = createContext();
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
+  const [admin, setAdmin] = useState(false);
   return (
     <>
       <Head>
@@ -20,9 +24,14 @@ function MyApp({ Component, pageProps }) {
           crossorigin="anonymous"
         />
       </Head>
-      <cartContext.Provider value={[cart, setCart]}>
-        <Component {...pageProps} />
-      </cartContext.Provider>
+
+      {/* <Provider store={store}> */}
+        <adminContext.Provider value={[admin, setAdmin]}>
+          <cartContext.Provider value={[cart, setCart]}>
+            <Component {...pageProps} />
+          </cartContext.Provider>
+        </adminContext.Provider>
+      {/* </Provider> */}
     </>
   );
 }

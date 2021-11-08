@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { cartContext } from "../../pages/_app";
+import { addToBasket } from "../Redux/Slices/basketSlices";
 import Book from "./Book";
 
 const Books = ({ books }) => {
   const [cart, setCart] = useContext(cartContext);
+  // const dispatch = useDispatch();
+
+
   const addToCart = (book) => {
     const newCart = [...cart];
     const index = newCart.find((item) => item._id === book._id);
@@ -14,6 +18,8 @@ const Books = ({ books }) => {
       alert("Book is already exist in cart...");
     }
     setCart(newCart);
+
+    // dispatch(addToBasket(book));
   };
   return (
     <div className="container-fluid mt-5">
